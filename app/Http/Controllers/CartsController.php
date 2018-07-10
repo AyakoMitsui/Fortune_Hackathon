@@ -19,7 +19,7 @@ class CartsController extends Controller
             $carts = $user->carting;
             //carting : カートの中身
             
-dd($carts);exit;
+
             $data = [
                 'user' => $user,
                 'carts' => $carts,

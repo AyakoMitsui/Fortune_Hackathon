@@ -30,7 +30,7 @@ class User extends Authenticatable
    //カートリスト
     public function carting()
     {
-    return $this->belongsToMany(Image::class, 'carts', 'user_id', 'image_id');
+    return $this->belongsToMany(Item::class, 'carts', 'user_id', 'item_id');
     }
     
     //カートに追加
@@ -48,7 +48,7 @@ class User extends Authenticatable
     //お気にに入りしているかどうか
     public function is_carting($id)
     {
-    return $this->carting()->where('image_id', $id)->exists(); //existsはwhereで値を探しだすことに成功すればtrueを返す
+    return $this->carting()->where('item_id', $id)->exists(); //existsはwhereで値を探しだすことに成功すればtrueを返す
     }
     
     

@@ -9,10 +9,10 @@ class Cart extends Model
      public function users()
     {
         
-         return $this->belongsToMany(User::class, 'carts', 'user_id', 'image_id')->withTimestamps();
+         return $this->belongsToMany(User::class, 'carts', 'user_id', 'item_id')->withTimestamps();
     }
         
-     public function addcart($image_id)
+     public function addcart($item_id)
     {
      //既にカートに入っているかの確認
      $exist = $this->is_carting($image_id);

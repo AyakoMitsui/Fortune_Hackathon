@@ -16,14 +16,12 @@ class CreateCartsTable extends Migration
         Schema::create('carts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
-            $table->integer('image_id')->unsigned()->index();
+            $table->integer('item_id')->unsigned()->index();
             $table->timestamps();
             
              // 外部キー設定
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('image_id')->references('id')->on('images')->onDelete('cascade');
-            
-           
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
         });
     }
 
@@ -37,4 +35,3 @@ class CreateCartsTable extends Migration
         Schema::dropIfExists('carts');
     }
 }
-

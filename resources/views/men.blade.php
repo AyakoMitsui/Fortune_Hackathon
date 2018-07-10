@@ -1,10 +1,10 @@
 <?php
-    $images =App\Image::where('sex', 'M')->get()
+    $items =App\Item::where('sex', 'M')->get()
     ?>
-    @foreach($images as $image)
-    <img src="{{url($image->img)}}">
+    @foreach($items as $item)
+    <img src="{{url($item->image)}}">
     
-    {!! Form::open(['route' => ['carts.store', $image->id], 'method' => 'store']) !!}
+    {!! Form::open(['route' => ['carts.store', $item->id], 'method' => 'store']) !!}
                         {!! Form::submit('カートに追加', ['class' => 'btn btn-primary btn-lg']) !!}
                     {!! Form::close() !!}
                     </div>
